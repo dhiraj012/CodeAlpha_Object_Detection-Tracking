@@ -50,6 +50,10 @@ PyTorch installed with CUDA support (GPU version)
 ### 1. High PC compatibility is recommended. The system may experience lag or slower performance on devices with low CPU/GPU performance.
 ### 3. If you experience lag, try lowering the video resolution or use a lighter YOLOv5 model (like yolov5n).
 
+## Troubleshooting
+### Camera Lagging: If you experience lag, try reducing the frame resolution or running the code on a machine with a dedicated GPU for faster inference.
+### Incorrect Object Detection: Adjust the confidence threshold if YOLOv5 detects too many false positives.
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
