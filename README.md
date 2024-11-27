@@ -1,39 +1,58 @@
-# CodeAlpha_Object_Detection-Tracking
-A real-time object detection and tracking application using Faster R-CNN with PyTorch and OpenCV. This project identifies objects in live video streams, highlights them with bounding boxes, and provides class labels. Ideal for surveillance, automation, and research purposes.
-#  Real-Time Object Detection and Tracking with Faster R-CNN
+# Object Detection and Tracking with YOLOv5 and DeepSORT
 
-Welcome to the **Real-Time Object Detection and Tracking** project! This implementation leverages the **Faster R-CNN** model to detect and track objects with remarkable accuracy in live video streams or pre-recorded videos.
+This project implements **real-time object detection and tracking** using the YOLOv5 model and **DeepSORT**. The goal is to detect and track multiple objects (e.g., people, bottles, etc.) in a video stream (live camera feed or pre-recorded video). The system uses YOLOv5 for object detection and DeepSORT for tracking detected objects over time.
 
----
+## Features
+- **Object Detection**: Uses YOLOv5 to detect multiple objects in real time.
+- **Object Tracking**: Tracks objects across frames using DeepSORT.
+- **Real-Time Processing**: Displays live object detection and tracking results from the webcam or a video file.
+- **Works with Various Objects**: Capable of detecting common objects like people, bottles, knives, and books.
 
-## 📋 Features
-- **⚡ Real-Time Detection**: Compatible with live camera feeds or video files.
-- **🎯 High Accuracy**: Detects over 80 objects using COCO dataset pre-trained weights.
-- **👌 User-Friendly Output**: Draws bounding boxes and labels directly on the video frames.
+## Installation
 
----
+To get started, follow the steps below to set up the environment:
 
-## **⚙️ Setup and Installation**
-
-### **🔧 Requirements**
-- Python 3.7+
-- PyTorch, torchvision
-- OpenCV
-
-### **💻 Installation**
-1. **Clone the Repository**  
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-repo/Real-Time-Object-Detection
-   cd Real-Time-Object-Detection
+   git clone https://github.com/yourusername/object-detection-tracking.git
+   cd object-detection-tracking
+### Install dependencies:
+pip install -r requirements.txt
 
-Install Dependencies :
+### Requirements
+This project may require high system specifications for smooth operation, especially when using the DeepSORT tracker alongside YOLOv5. GPU support is recommended for faster processing and to avoid lags.
 
-### pip install torch torchvision opencv-python
+Operating System: Windows/Linux/MacOS
+Python Version: 3.7+
+Libraries:
+torch (PyTorch for YOLOv5)
+opencv-python (for video processing)
+deep_sort_realtime (for object tracking)
 
-### 💡 Applications :
-🏠 Surveillance: Detect and track intruders or objects.
-📷 Smart Cameras: Enhance automated camera systems.
-🛒 Retail Analysis: Track customer movement and analyze in-store behavior.
+### For GPU support (recommended for real-time processing):
 
-### 📜 License
-This project is open-source and available under the MIT License.
+CUDA-enabled GPU (NVIDIA)
+PyTorch installed with CUDA support (GPU version)
+
+## How It Works
+### Object Detection with YOLOv5:
+
+### 1. YOLOv5 is used to detect various objects in the frame. The model classifies the objects and assigns confidence scores for each detection.
+### 2. Objects detected with a confidence score higher than 30% (configurable) are passed on to the tracking algorithm.
+
+### Object Tracking with DeepSORT:
+
+### 1. Once YOLOv5 detects the objects, DeepSORT tracks those objects across frames. The tracker assigns unique IDs to each object and follows their movements in real-time.
+### 2. Tracked objects are shown with their bounding boxes, class names, and unique IDs.
+
+## Performance Considerations:
+
+### 1. High PC compatibility is recommended. The system may experience lag or slower performance on devices with low CPU/GPU performance.
+### 3. If you experience lag, try lowering the video resolution or use a lighter YOLOv5 model (like yolov5n).
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+YOLOv5: https://github.com/ultralytics/yolov5
+DeepSORT: https://github.com/nwojke/deep_sort
